@@ -13,8 +13,8 @@
 </p>
 
 <p align="center">
-  <a href="#information_source-how-to-use">Sobre</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#memo-license">License</a>
+  <a href="#information_source-sobre">Sobre</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#memo-license">Licença</a>
 </p>
 
 
@@ -25,14 +25,15 @@
 To clone and run this application, you'll need [Git](https://git-scm.com), or higher installed on your computer. From your command line:
 
 ```bash
-# Clone this repository
+# Clonar esse projeto
 $ git clone https://github.com/portugaAndre/NeuronioPerceptron.git NeuronioPeceptron
+```
 
 
-
-## :memo: License
-This project is under the MIT license. See the [LICENSE](https://github.com/lukemorales/rocketshoes-react-native/blob/master/LICENSE) for more information.
+## :memo: Licença
+Esse projeto está sobre a MIT license. Está totalmente dísponivel para ser utilizado!
 
 ---
 
-Made with ♥ by André Vinicius e Geovanna Miranda :wave: [Get in touch!](https://www.linkedin.com/in/andr%C3%A9-vinicius-b3b932162/)
+
+Made with ♥ by André Vinicius e Geovanna Miranda :wave: [Entre em Contato!](https://www.linkedin.com/in/andr%C3%A9-vinicius-b3b932162/)
