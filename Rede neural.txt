@@ -1,0 +1,37 @@
+.data
+	msg1: .asciiz "Resultado esperado: " #declaracao de variavel string
+	msg2: .asciiz "\t| Resultado Obtido: " #declaracao de variavel string
+	w1: .float 0.0 #declaracao de variavel float
+	w2: .float 0.8 #declaracao de variavel float
+	erro: .float 0.0 #declaracao de variavel float
+	saidaEsperada: .float 0.0 #declaracao de variavel float
+	somatorioPesos: .float 0.0 #declaracao de variavel float
+	epocas: .float 6.0 #declaracao de variavel float
+	taxaDeAprendizado: .float 0.05 #declaracao de variavel float
+	vetI: .float 2.0, 4.0, 6.0, 8.0, 10.0 #declaracao de variavel float
+	vetJ: .float 2.0, 4.0, 6.0, 8.0, 10.0 #declaracao de variavel float
+	
+.text
+.globl main #Colocando a funcao main como global
+main:
+	j for1 #Fazendo um jump para funcao for1
+	
+for1: #Funcao for1
+	blt $t1, 6, exit #Condicao de saida do loop quando t1 < 6
+	lw $t6, epocas #Carrega o valor de epocas em t6
+	addi $t6, $t6, 1 #Adiciona em t6 mais 1
+	sw $t6, epocas #Volta o valor de t6 em epocas
+	addi $t1, $t1, 1 #Adiciona mais um ao t1 para que quando chegue em 6 saia do loop
+	j for2
+
+for2:
+	blt $t5, 5, for1 #Condicao de saida do loop quando t5 < 5 e vai para o for1
+	lw $t2, w1 #Carrega w1 em t2
+	lw $t3, $t1 (vetI) #Carrega vetor em t3
+	mul $t4, $t2, $t3 #Faz a multiplicacao entre w1 e vetI salvando em t4
+	j for2 #Volta para a funcao for2 ate cumprir as 5 interacoes
+	
+exit:
+	li $v0, 10 #codigo de termino
+	syscall #terminando programa
+	
