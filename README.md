@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img alt="React RocketShoes" src="https://res.cloudinary.com/lukemorales/image/upload/v1562696000/readme_logos/react-rocketshoes_jy1lze.png" />
+    <img alt="Puc Minas" src="https://www.pucminas.br/pos/letras/noticias/PublishingImages/Paginas/COMUNICADO/Brasao%20PUC%20Minas%20aplicacao_cinza.png" />
     <br>
     Neurônio Perceptron
 </h1>
@@ -8,7 +8,8 @@
  🚀 Trabalho de Arquitetura de computadores de sistemas de informação
 </h4>
 <p align="center">
- ![Badge](https://img.shields.io/badge/OpenSource-Free%20Open%20source-brightgreen)
+<img src="https://img.shields.io/badge/OpenSource-Free%20Open%20source-brightgreen"/>
+
 </p>
 
 <p align="center">
