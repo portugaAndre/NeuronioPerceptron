@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img alt="Puc Minas" src="https://www.pucminas.br/pos/letras/noticias/PublishingImages/Paginas/COMUNICADO/Brasao%20PUC%20Minas%20aplicacao_cinza.png" />
+    <img alt="Puc Minas" src="imgs\Brasao PUC Minas aplicacao_cinza.png" />
     <br>
     Neurônio Perceptron
 </h1>
@@ -14,7 +14,7 @@
 
 <p align="center">
   <a href="#information_source-sobre">Sobre</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#memo-license">Licença</a>
+  <a href="#memo-Licença">Licença</a>
 </p>
 
 
