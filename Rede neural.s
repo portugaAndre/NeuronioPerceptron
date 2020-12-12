@@ -17,17 +17,26 @@
 main:
 	j for1 #Fazendo um jump para funcao for1
 	
-for1: #Funcao for1
-	blt $t1, 6, print #Condicao de saida do loop quando t1 < 6
+
+for1: 	
+	#blt $t1, 6, print #Condicao de saida do loop quando t1 < 6
+	add $t1, $zero, $zero #i do for
+	addi $s1, $zero, 6
+  	slt $t0, $t1, $s1
+	beq $t0, $zero exit
 	lw $t6, epocas #Carrega o valor de epocas em t6
 	addi $t6, $t6, 1 #Adiciona em t6 mais 1
 	sw $t6, epocas #Volta o valor de t6 em epocas
 	addi $t1, $t1, 1 #Adiciona mais um ao t1 para que quando chegue em 6 saia do loop
 	j for2
 
-for2:
-	
-	blt $t5, 10, for1 #Condicao de saida do loop quando t5 < 10 e vai para o for1
+for2: 
+	#blt $t5, 10, for1 #Condicao de saida do loop quando t5 < 10 e vai para o for1
+	addi $s3, $zero, 2 #j do for
+	addi $s1, $zero, 10
+ 	slt $t5, $s3, $s2
+	beq $t5, $zero for1
+
 	lw $t2, w1 #Carrega w1 em t2	
 	lw $t3, w2 #Carrega w2 em t3	
 	mul $t2, $t2, $t5 #carrega em t2 o w1 * dados a serem treinados
@@ -47,7 +56,7 @@ for2:
 	add $s3, $s0, $s1 #adiciona (w1*i)  + (w2*i) 
 	sw $s3, saidaObtida #Volta o valor de s3 em saida obtida
 
-	addi $t5, $t5, 2 #Adiciona mais dois ao t5 para que quando chegue em 10 saia do loop
+	addi $s3, $s3, 2 #Adiciona mais dois ao t5 para que quando chegue em 10 saia do loop
 	j for2 #Volta para a funcao for2 ate cumprir as 5 interacoes
 	
 
