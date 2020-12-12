@@ -22,7 +22,7 @@
 
 ## :information_source: Sobre
 
-To clone and run this application, you'll need [Git](https://git-scm.com), or higher installed on your computer. From your command line:
+Um neuronio perceptron é uma rede neural artificial de um neurônio. Ele utiliza entradas e pesos(entrada de dados com pesos para cada entrada), ele transforma essas entradas(corpo somatico) em um somatório da multiplicação dos pesos pelas entradas, uma vez processado o dado, ele passa por uma transformação a ativação(saída).
 
 ```bash
 # Clonar esse projeto

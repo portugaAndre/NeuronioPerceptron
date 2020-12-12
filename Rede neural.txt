@@ -3,13 +3,14 @@
 	msg2: .asciiz "\t| Resultado Obtido: " #declaracao de variavel string
 	w1: .float 0.0 #declaracao de variavel float
 	w2: .float 0.8 #declaracao de variavel float
+	saidaObtida: .float 0.0 #declaracao de variavel float
 	erro: .float 0.0 #declaracao de variavel float
 	saidaEsperada: .float 0.0 #declaracao de variavel float
 	somatorioPesos: .float 0.0 #declaracao de variavel float
 	epocas: .float 6.0 #declaracao de variavel float
 	taxaDeAprendizado: .float 0.05 #declaracao de variavel float
-	vetI: .float 2.0, 4.0, 6.0, 8.0, 10.0 #declaracao de variavel float
-	vetJ: .float 2.0, 4.0, 6.0, 8.0, 10.0 #declaracao de variavel float
+
+	
 	
 .text
 .globl main #Colocando a funcao main como global
@@ -17,7 +18,7 @@ main:
 	j for1 #Fazendo um jump para funcao for1
 	
 for1: #Funcao for1
-	blt $t1, 6, exit #Condicao de saida do loop quando t1 < 6
+	blt $t1, 6, print #Condicao de saida do loop quando t1 < 6
 	lw $t6, epocas #Carrega o valor de epocas em t6
 	addi $t6, $t6, 1 #Adiciona em t6 mais 1
 	sw $t6, epocas #Volta o valor de t6 em epocas
@@ -25,12 +26,38 @@ for1: #Funcao for1
 	j for2
 
 for2:
-	blt $t5, 5, for1 #Condicao de saida do loop quando t5 < 5 e vai para o for1
-	lw $t2, w1 #Carrega w1 em t2
-	lw $t3, $t1 (vetI) #Carrega vetor em t3
-	mul $t4, $t2, $t3 #Faz a multiplicacao entre w1 e vetI salvando em t4
+	
+	blt $t5, 10, for1 #Condicao de saida do loop quando t5 < 10 e vai para o for1
+	lw $t2, w1 #Carrega w1 em t2	
+	lw $t3, w2 #Carrega w2 em t3	
+	mul $t2, $t2, $t5 #carrega em t2 o w1 * dados a serem treinados
+	mul $t3, $t3, $t5 #carrega em t3 o w2 * dados a serem treinados
+	lw $t4, somatorioPesos #Carrega somatorioPesos em t4	
+	add $t4, $t2, $t3 #somatorioPesos 	
+	sub $t6, $t5, $t4 #erro = saida esperada - somatorioPesos
+	lw $t7, taxaDeAprendizado #Carrega taxaDeAprendizado em t7	
+	add $t2, $t6, $t2 # adiciona em t2, o w1 + erro
+	add $t3, $t6, $t3 # adiciona em t3, o w2 + erro
+	mul $t2, $t2, $t7 # adiciona em s0 o w1 treinado
+	mul $t3, $t3, $t7 # adiciona em s1 o w2 treinado
+	mul $s0, $t2, $t5 # valor obtido  
+	mul $s1, $t3, $t5 # valor obtido
+	sw $s0, w1 #Volta o valor de s0 em w1
+	sw $s1, w2 #Volta o valor de s1 em w2
+	add $s3, $s0, $s1 #adiciona (w1*i)  + (w2*i) 
+	sw $s3, saidaObtida #Volta o valor de s3 em saida obtida
+
+	addi $t5, $t5, 2 #Adiciona mais dois ao t5 para que quando chegue em 10 saia do loop
 	j for2 #Volta para a funcao for2 ate cumprir as 5 interacoes
 	
+
+print:
+	addi $t5, $t5, 2 #Adiciona mais dois ao t5 para que quando chegue em 10 saia do loop
+	blt $t5, 10, exit #Condicao de saida do loop quando t5 < 10 e vai para exit
+	li $v0, 10 #codigo de printar float
+	lwc1  $f12, saidaObtida
+	
+
 exit:
 	li $v0, 10 #codigo de termino
 	syscall #terminando programa
