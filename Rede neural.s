@@ -31,7 +31,7 @@ for1:
 	j for2
 
 for2: 
-	#blt $t5, 10, for1 #Condicao de saida do loop quando t5 < 10 e vai para o for1
+	# blt $t5, 10, for1 #Condicao de saida do loop quando t5 < 10 e vai para o for1
 	addi $s3, $zero, 2 #j do for
 	addi $s1, $zero, 10
  	slt $t5, $s3, $s2

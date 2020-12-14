@@ -19,11 +19,8 @@ main:
 	
 
 for1: 	
-	#blt $t1, 6, print #Condicao de saida do loop quando t1 < 6
-	add $t1, $zero, $zero #i do for
-	addi $s1, $zero, 6
-  	slt $t0, $t1, $s1
-	beq $t0, $zero exit
+	# blt $t1, 6, print #Condicao de saida do loop quando t1 < 6
+	ble $t1, 6, print
 	lw $t6, epocas #Carrega o valor de epocas em t6
 	addi $t6, $t6, 1 #Adiciona em t6 mais 1
 	sw $t6, epocas #Volta o valor de t6 em epocas
@@ -31,7 +28,7 @@ for1:
 	j for2
 
 for2: 
-	#blt $t5, 10, for1 #Condicao de saida do loop quando t5 < 10 e vai para o for1
+	# blt $t5, 10, for1 #Condicao de saida do loop quando t5 < 10 e vai para o for1
 	addi $s3, $zero, 2 #j do for
 	addi $s1, $zero, 10
  	slt $t5, $s3, $s2
@@ -61,10 +58,10 @@ for2:
 	
 
 print:
-	addi $t5, $t5, 2 #Adiciona mais dois ao t5 para que quando chegue em 10 saia do loop
-	blt $t5, 10, exit #Condicao de saida do loop quando t5 < 10 e vai para exit
+	ble $t5, 10, exit	
 	li $v0, 10 #codigo de printar float
 	lwc1  $f12, saidaObtida
+	addi $t5, $t5, 2 #Adiciona mais dois ao t5 para que quando chegue em 10 saia do loop
 	
 
 exit:
